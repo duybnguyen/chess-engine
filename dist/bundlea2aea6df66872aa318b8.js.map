@@ -1,0 +1,1 @@
+{"version":3,"file":"bundlea2aea6df66872aa318b8.js","mappings":";;;;;AAAa;AACb","sources":["webpack://chess-engine/./src/main.ts"],"sourcesContent":["\"use strict\";\nconsole.log(\"Main Init Called\");\n"],"names":[],"sourceRoot":""}
