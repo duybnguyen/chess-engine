@@ -1,4 +1,4 @@
-const PIECES = {
+export const PIECES = {
   EMPTY: 0,
   wP: 1,
   wN: 2,
@@ -14,21 +14,10 @@ const PIECES = {
   bK: 12,
 };
 
-const BOARD_SQUARES_NUM = 120;
+export const BOARD_SQUARES_NUM = 120;
 
-const RANKS = {
-  RANK_1: 0,
-  RANK_2: 1,
-  RANK_3: 2,
-  RANK_4: 3,
-  RANK_5: 4,
-  RANK_6: 5,
-  RANK_7: 6,
-  RANK_8: 7,
-  RANK_NONE: 8,
-};
-
-const FILES = {
+// x-axis
+export const FILES = {
   FILE_A: 0,
   FILE_B: 1,
   FILE_C: 2,
@@ -40,9 +29,22 @@ const FILES = {
   FILE_NONE: 8,
 };
 
-const COLOURS = { WHITE: 0, BLACK: 1, BOTH: 2 };
+// y-axis
+export const RANKS = {
+  RANK_1: 0,
+  RANK_2: 1,
+  RANK_3: 2,
+  RANK_4: 3,
+  RANK_5: 4,
+  RANK_6: 5,
+  RANK_7: 6,
+  RANK_8: 7,
+  RANK_NONE: 8,
+};
 
-const VALID_SQUARES = {
+export const COLOURS = { WHITE: 0, BLACK: 1, BOTH: 2 };
+
+export const SQUARES = {
   A1: 21,
   B1: 22,
   C1: 23,
@@ -62,3 +64,10 @@ const VALID_SQUARES = {
   NO_SQ: 99,
   OFFBOARD: 100,
 };
+
+export const FILESBOARD = new Array(BOARD_SQUARES_NUM)
+export const RANKSBOARD = new Array(BOARD_SQUARES_NUM)
+
+export const getBoardSquare = (file: number, rank: number): number => {
+   return ((21 + file) + (rank * 10))
+}
