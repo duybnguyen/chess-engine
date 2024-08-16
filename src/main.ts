@@ -6,6 +6,11 @@ import {
   FILESBOARD,
   RANKSBOARD,
   getBoardSquare,
+  PIECEKEYS,
+  RAND_32,
+  CASTLEKEYS,
+  setSIDEKEY
+
 } from "./defs";
 
 const InitializeFilesRanksBoard = (): void => {
@@ -27,8 +32,21 @@ const InitializeFilesRanksBoard = (): void => {
   }
 };
 
+const InitializeHashKeys = (): void => {
+   for (let i = 0; i < 14 * 120; i++) {
+      PIECEKEYS[i] = RAND_32()
+   }
+
+   setSIDEKEY(RAND_32())
+
+   for (let i = 0; i < 16; i++) {
+      CASTLEKEYS[i] = RAND_32();
+   }
+}
+
 const main = () => {
   InitializeFilesRanksBoard();
+  InitializeHashKeys()
 };
 
 main();

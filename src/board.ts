@@ -1,4 +1,4 @@
-import { BOARD_SQUARES_NUM, COLORS } from "./defs";
+import { BOARD_SQUARES_NUM, COLORS, PIECES, SQUARES, PIECEKEYS, SIDEKEY, CASTLEKEYS } from "./defs";
 
 export const getPieceIndex = (piece: number, pieceNum: number) => piece * 10 + pieceNum
 
@@ -8,7 +8,7 @@ interface GameBoard {
   fiftyMove: number; // draw condition
   hisply: number; // accounts for every move made in the game
   ply: number; // number of half moves made in the search tree
-  enPassent: number;
+  enPassant: number;
   castlePerm: number;
   material: Array<number>;
   pieceNum: Array<number>;
@@ -22,11 +22,35 @@ const gameBoard: GameBoard = {
   fiftyMove: 0,
   hisply: 0,
   ply: 0,
-  enPassent: 0,
+  enPassant: 0,
   castlePerm: 0,
   material: new Array(2),
   pieceNum: new Array(13),
   posKey: 0
 };
 
+const generatePositionKey = () => {
+
+   let finalKey = 0;
+   let piece = PIECES.EMPTY
+
+   for (let sq = 0; sq < BOARD_SQUARES_NUM; sq++) {
+      piece = gameBoard.pieces[sq];
+      if (piece != PIECES.EMPTY && piece != SQUARES.OFFBOARD) {
+         finalKey ^= PIECEKEYS[(piece * 120) + sq]
+      }
+   }
+
+   if (gameBoard.side == COLORS.WHITE) {
+      finalKey ^= SIDEKEY
+   }
+
+   if (gameBoard.enPassant != SQUARES.NO_SQ) {
+      finalKey ^= PIECEKEYS[gameBoard.enPassant]
+   }
+
+   finalKey ^= CASTLEKEYS[gameBoard.castlePerm]
+
+   return finalKey
+}
 export default gameBoard;

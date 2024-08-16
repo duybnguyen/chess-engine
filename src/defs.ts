@@ -229,6 +229,14 @@ export const PIECESLIDES = [
   BOOL.FALSE,
 ];
 
+// generating position keys
+export const PIECEKEYS = new Array(14 * 120)
+export const CASTLEKEYS = new Array(16)
+export let SIDEKEY: number;
+export const setSIDEKEY = (value: number): void => {
+  SIDEKEY = value;
+};
+
 export const RAND_32 = () => {
    return (
      (Math.floor(Math.random() * 255 + 1) << 23) |
