@@ -42,7 +42,7 @@ export const RANKS = {
   RANK_NONE: 8,
 };
 
-export const COLOURS = { WHITE: 0, BLACK: 1, BOTH: 2 };
+export const COLOR = { WHITE: 0, BLACK: 1, BOTH: 2 };
 
 export const SQUARES = {
   A1: 21,
