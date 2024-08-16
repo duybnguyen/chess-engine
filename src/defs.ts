@@ -42,7 +42,7 @@ export const RANKS = {
   RANK_NONE: 8,
 };
 
-export const COLOR = { WHITE: 0, BLACK: 1, BOTH: 2 };
+export const COLORS = { WHITE: 0, BLACK: 1, BOTH: 2 };
 
 export const SQUARES = {
   A1: 21,
@@ -65,9 +65,175 @@ export const SQUARES = {
   OFFBOARD: 100,
 };
 
+const BOOL = { FALSE: 0, TRUE: 1 };
+
 export const FILESBOARD = new Array(BOARD_SQUARES_NUM)
 export const RANKSBOARD = new Array(BOARD_SQUARES_NUM)
 
 export const getBoardSquare = (file: number, rank: number): number => {
    return ((21 + file) + (rank * 10))
+}
+
+export const PIECEMID = [
+  BOOL.FALSE,
+  BOOL.FALSE,
+  BOOL.TRUE,
+  BOOL.TRUE,
+  BOOL.TRUE,
+  BOOL.TRUE,
+  BOOL.TRUE,
+  BOOL.FALSE,
+  BOOL.TRUE,
+  BOOL.TRUE,
+  BOOL.TRUE,
+  BOOL.TRUE,
+  BOOL.TRUE,
+];
+export const PIECEMAJOR = [
+  BOOL.FALSE,
+  BOOL.FALSE,
+  BOOL.FALSE,
+  BOOL.FALSE,
+  BOOL.TRUE,
+  BOOL.TRUE,
+  BOOL.TRUE,
+  BOOL.FALSE,
+  BOOL.FALSE,
+  BOOL.FALSE,
+  BOOL.TRUE,
+  BOOL.TRUE,
+  BOOL.TRUE,
+];
+export const PIECEMINOR = [
+  BOOL.FALSE,
+  BOOL.FALSE,
+  BOOL.TRUE,
+  BOOL.TRUE,
+  BOOL.FALSE,
+  BOOL.FALSE,
+  BOOL.FALSE,
+  BOOL.FALSE,
+  BOOL.TRUE,
+  BOOL.TRUE,
+  BOOL.FALSE,
+  BOOL.FALSE,
+  BOOL.FALSE,
+];
+export const PIECEVALUATION = [
+  0, 100, 280, 320, 500, 1000, 60000, 100, 325, 325, 500, 1000, 60000,
+];
+export const PIECECOL = [
+  COLORS.BOTH,
+  COLORS.WHITE,
+  COLORS.WHITE,
+  COLORS.BOTH,
+  COLORS.WHITE,
+  COLORS.WHITE,
+  COLORS.BOTH,
+  COLORS.WHITE,
+  COLORS.WHITE,
+  COLORS.BOTH,
+  COLORS.WHITE,
+  COLORS.WHITE,
+  COLORS.BLACK,
+];
+
+export const PIECEPAWN = [
+  BOOL.FALSE,
+  BOOL.TRUE,
+  BOOL.FALSE,
+  BOOL.FALSE,
+  BOOL.FALSE,
+  BOOL.FALSE,
+  BOOL.FALSE,
+  BOOL.TRUE,
+  BOOL.FALSE,
+  BOOL.FALSE,
+  BOOL.FALSE,
+  BOOL.FALSE,
+  BOOL.FALSE,
+];
+export const PIECEKNIGHT = [
+  BOOL.FALSE,
+  BOOL.FALSE,
+  BOOL.TRUE,
+  BOOL.FALSE,
+  BOOL.FALSE,
+  BOOL.FALSE,
+  BOOL.FALSE,
+  BOOL.FALSE,
+  BOOL.TRUE,
+  BOOL.FALSE,
+  BOOL.FALSE,
+  BOOL.FALSE,
+  BOOL.FALSE,
+];
+export const PIECEKING = [
+  BOOL.FALSE,
+  BOOL.FALSE,
+  BOOL.FALSE,
+  BOOL.FALSE,
+  BOOL.FALSE,
+  BOOL.FALSE,
+  BOOL.TRUE,
+  BOOL.FALSE,
+  BOOL.FALSE,
+  BOOL.FALSE,
+  BOOL.FALSE,
+  BOOL.FALSE,
+  BOOL.TRUE,
+];
+export const PIECEROOKQUEEN = [
+  BOOL.FALSE,
+  BOOL.FALSE,
+  BOOL.FALSE,
+  BOOL.FALSE,
+  BOOL.TRUE,
+  BOOL.TRUE,
+  BOOL.FALSE,
+  BOOL.FALSE,
+  BOOL.FALSE,
+  BOOL.FALSE,
+  BOOL.TRUE,
+  BOOL.TRUE,
+  BOOL.FALSE,
+];
+export const PIECEBISHOPQUEEN = [
+  BOOL.FALSE,
+  BOOL.FALSE,
+  BOOL.FALSE,
+  BOOL.TRUE,
+  BOOL.FALSE,
+  BOOL.TRUE,
+  BOOL.FALSE,
+  BOOL.FALSE,
+  BOOL.FALSE,
+  BOOL.TRUE,
+  BOOL.FALSE,
+  BOOL.TRUE,
+  BOOL.FALSE,
+];
+export const PIECESLIDES = [
+  BOOL.FALSE,
+  BOOL.FALSE,
+  BOOL.FALSE,
+  BOOL.TRUE,
+  BOOL.TRUE,
+  BOOL.TRUE,
+  BOOL.FALSE,
+  BOOL.FALSE,
+  BOOL.FALSE,
+  BOOL.TRUE,
+  BOOL.TRUE,
+  BOOL.TRUE,
+  BOOL.FALSE,
+];
+
+export const RAND_32 = () => {
+   return (
+     (Math.floor(Math.random() * 255 + 1) << 23) |
+     (Math.floor(Math.random() * 255 + 1) << 16) |
+     (Math.floor(Math.random() * 255 + 1) << 8) |
+     Math.floor(Math.random() * 255 + 1)
+   );
 }
